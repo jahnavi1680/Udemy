@@ -17,5 +17,5 @@ venv/
 *.csv
 *.sqlite3
 *.log
-
+data/glove.6B/
 
