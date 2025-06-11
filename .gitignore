@@ -1,0 +1,21 @@
+# Python junk
+__pycache__/
+*.py[cod]
+*.egg-info/
+
+# Environment
+venv/
+.env/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# System
+.DS_Store
+
+# Data
+*.csv
+*.sqlite3
+*.log
+
+
