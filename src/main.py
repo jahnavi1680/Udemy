@@ -6,6 +6,10 @@ from tensorflow.keras.preprocessing.text import Tokenizer
 
 
 EMBEDDING_DIM = 100
+MAX_SEQUENCE_LENGTH = 100
+MAX_VOCAB_SIZE= 20000
+
+
 # load in pre-trained word vectors
 print('Loading word vectors...')
 word2vec = {}
@@ -24,14 +28,28 @@ print(len(df_train))
 
 sentences = df_train['comment_text'].fillna("DUMMY_VALUE").values
 # convert the sentences (strings) into integers
-tokenizer = Tokenizer(num_words=200000)
+tokenizer = Tokenizer(num_words=MAX_VOCAB_SIZE)
 tokenizer.fit_on_texts(sentences)
 sequences = tokenizer.texts_to_sequences(sentences)
-print(len(sequences[0]),len(sequences[1]),len(sequences[2]))
 
-
-
-#adding padding
-#wgats the max length of the sentences?
+# pad the sequences to the same length
 from tensorflow.keras.preprocessing.sequence import pad_sequences
-max_len = 100
+data = pad_sequences(sequences, maxlen=MAX_SEQUENCE_LENGTH)
+print('Shape of data tensor:', data.shape) #shape - (159571,100) -  hundred is the length of sequence
+
+# get word -> integer mapping
+word2idx = tokenizer.word_index
+print(word2idx['hello'])
+
+# prepare embedding matrix
+print('Filling pre-trained embeddings...')
+num_words = min(MAX_VOCAB_SIZE, len(word2idx) + 1)
+embedding_matrix = np.zeros((num_words, EMBEDDING_DIM))
+for word, i in word2idx.items():
+  if i < MAX_VOCAB_SIZE:
+    embedding_vector = word2vec.get(word)
+    if embedding_vector is not None:
+      # words not found in embedding index will be all zeros.
+      embedding_matrix[i] = embedding_vector
+print('Shape of embedding matrix:', embedding_matrix.shape)  # (20000, 100)
+
