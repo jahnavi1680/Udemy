@@ -16,5 +16,9 @@ For more exploration on how this looks - glove.ipynb
 We have mapped the raw text file to a dictionory with keys as words and values as vectors.
 
 ## Now mapping our sentences to these
+For that, first we need to convert the sentences into tokens first. For this, we use keras tokeniser. Which also saves vocabulary in a dictionary {1:'the',2:'of'}  
+Then, we want all the sentences to be of same length. So we add tokens to it as a padding.  Then, convert each sentence into an embedding matrix. These embedding matrices are then sent to the CNN for training.
+
+## CNN architcture
 
 
