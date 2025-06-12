@@ -25,9 +25,13 @@ So our glove embeddings are word:embedding_vector. But our sequences are all num
 
 Guess what we do? We don't have to replace the sequence matrix with vectors apparently. We make embedding matrix. With all the words from vocabulary. The shape of the embedding matrix is (20000,100)  
 
-Then theres something called embedding layer. Which I don't understand. So I'll get back to this in a few minutes.
+Then theres something called embedding layer. Which I don't understand. So I'll get back to this in a few minutes. -- actually this will be clear in CNN architecture explanation
 
 ## CNN architcture
+I will just write down the dimensions as the input goes through every step.  
 
-
+Input - [100,] - max length of sequence
+Embedding layer - So this layer does stuff that will return the embeddings of our input sequene.  
+A quick detour to the embedding matrix. It contains the glove vectors of all the words in the vocabulary indexed according to their vocab index.. i.e."the" word's embeddings are in the first of the embedding matrix.  
+The embedding layer gets the words 
 
