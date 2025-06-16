@@ -35,3 +35,13 @@ Embedding layer - So this layer does stuff that will return the embeddings of ou
 A quick detour to the embedding matrix. It contains the glove vectors of all the words in the vocabulary indexed according to their vocab index.. i.e."the" word's embeddings are in the first of the embedding matrix.  
 The embedding layer gets the words 
 
+# Simple RNNs (RNN, LSTM, GRU) for text classification
+In the previous section, the teacher of the course helped with a lot of code given for text classification. I guess for RNN, we are going to have to figure out lol.  
+So the code in the https://github.com/lazyprogrammer/machine_learning_examples/blob/master/nlp_class3/simple_rnn_test.py file was all that give to us. Lets use it and get the classification results by ourselves.
+
+## Data Processing
+The data that's given to the models is pretty much the same. So let's replicate from that code. (We understood pretty well).
+1. Getting the pretrained weights from Glove
+2. 
+
+## 
